@@ -225,7 +225,7 @@ function ici_teardown {
         IFS=: command eval 'cleanup=(${_CLEANUP})'
         for c in "${cleanup[@]}"; do
           ici_warn Cleaning up "${c/#\~/$HOME}"
-          rm -rf "${c/#\~/$HOME}"
+          # rm -rf "${c/#\~/$HOME}"
         done
 
         # end fold if needed
@@ -416,9 +416,9 @@ function ici_quiet {
     "$@" &> "$out" || err=$?
     if [ "$err" -ne 0 ]; then
         ici_redirect cat "$out"
-        rm -rf "$out"
+        # rm -rf "$out"
     fi
-    rm -rf "$out"
+    # rm -rf "$out"
     return "$err"
 }
 
@@ -430,7 +430,7 @@ function ici_filter {
     if [ "$err" -ne 0 ]; then
         ici_redirect cat "$out"
     fi
-    rm -rf "$out"
+    # rm -rf "$out"
     return "$err"
 }
 
